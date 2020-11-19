@@ -7,6 +7,7 @@
     <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat|Nunito+Sans&display=swap" rel="stylesheet">  -->
    <title>Grace Hopper</title>
 </head>
+
 <body>
     <div class="Container">
         <div class="NavBar"> 
@@ -14,7 +15,12 @@
             <div class="LogIn-button">LogIn</div>
         </div>
         <div class="Banner-main"></div>
-        <div class="Profile-block">PROFILE</div>
+        <div class="Profile-block">
+            <img id="Profile-photo" src="./img/grace_hopper.jpg" alt="photo of Grace Hopper">
+            <div id="Profile-name">Programming Wisdom</div>
+            <div id="Profile-handle">@CodeWisdom</div>
+            <div id="Profile-description">Programming human and quotes.</div>
+        </div>
         <div class="Feed--statusBar">
             <div class="Feed-stats">
                 <div class="Feed-stat">
@@ -39,14 +45,62 @@
 
         <div id="Feed">
             <div class="Feed--header">
-                <div class="Feed--header-link" href="#">Tweets<div>
-                <div class="Feed--header-link" href="#">Tweets & Replies<div>
-                <div class="Feed--header-link" href="#">Media<div>
+                <div class="Feed--header-link" href="#">Tweets</div>
+                <div class="Feed--header-link" href="#">Tweets & Replies</div>
+                <div class="Feed--header-link" href="#">Media</div>
             </div>
             <div class="Feed--block">
-                <div class="Feed--post"></div>
-                <div class="Feed--post"></div>
-                <div class="Feed--post"></div>
+                <div class="Feed--post">
+                    <img class="Post--avatar" src="./img/grace_hopper.jpg" alt="user's avatar">
+                    <div class="Post--body">
+                        <div class="Post--header">
+                            <span class="User--name">Programming Wisdom</span> @CodeWisdom • 9h
+                        </div>
+                        <div class="Post--content">
+                            " Code is like humor. When you have to explain it, it's bad." – Cory House
+                        </div>
+                        <div class="Post--footer">
+                            <div>15</div>
+                            <div>756</div>
+                            <div>1.7K</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Feed--post">
+                    <img class="Post--avatar" src="./img/grace_hopper.jpg" alt="user's avatar">
+                    <div class="Post--body">
+                        <div class="Post--header">
+                            <span class="User--name">Programming Wisdom</span> @CodeWisdom • 13h
+                        </div>
+                        <div class="Post--content">
+                            "In theory, there is no difference between theory and practice. But, in practice, there is." - Jan L. A. van de Snepscheut
+                        </div>
+                        <div class="Post--footer">
+                            <div>3</div>
+                            <div>374</div>
+                            <div>899</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Feed--post">
+                    <div class="retweet">Programming Wisdom Retweeted</div>
+                    <img class="Post--avatar" src="./img/grace_hopper.jpg" alt="user's avatar">
+                    <div class="Post--body">
+                        <div class="Post--header">
+                            <span class="User--name">Programming Wisdom</span> @CodeWisdom • 28 Jul 2017
+                        </div>
+                        <div class="Post--content">
+                            "How did you know so much about computers?"<br><br>
+                            "I didn't, it was the first one."<br><br>
+                            Grace HOpper on Letterman
+                        </div>
+                        <div class="Post--footer">
+                            <div>15</div>
+                            <div>756</div>
+                            <div>1.7K</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

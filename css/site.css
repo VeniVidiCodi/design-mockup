@@ -3,6 +3,9 @@
 /* Refers to a varient of NavBar ("Modifier" in BEM) .NavBar--sticky { } */
 
 :root {
+    --color-blue: blue;
+    --color-white: white;
+    --color-off-white: #e3e3e3;
 /* --bg-color: #feaafe; */
 /* --page-spacing: 50px; */
 }
@@ -32,11 +35,12 @@ body {
     background: url('../img/hw1alt_mockup_reference_50%.png') no-repeat top center fixed;
     background-size: cover;
     opacity: 0.6;
+    font-family: Roboto, Arial, Helvetica, sans-serif;
 }
 .Container {
     display: grid;
-    grid-template-columns: 1fr 45% 1fr;
-    grid-template-rows: 46px 1fr 60px 1fr;
+    grid-template-columns: 1fr 588px 1fr;
+    grid-template-rows: 45px 162px 60px auto;
     grid-template-areas: 
     "navbar navbar navbar"
     "banner banner banner"
@@ -51,14 +55,17 @@ body {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
-    background-color: white;
+    padding: 15px 78px 15px 54px;
+    /* background-color: white; */
 }
 
 .Home-button {
-   
+   font-size: 12px;
+   font-weight: bold;
 }
 .LogIn-button {
-       
+    font-size: 12px;
+    font-weight: bold;
 }
 
 
@@ -67,69 +74,147 @@ body {
     grid-area: banner;
     width: 100vw;
     min-height: 160px;
-    background-color: white;
+    background-color: var(--color-white);
 }
 .Profile-block {
     grid-area: profile;
-    width: auto;
-    background-color: white;
+    margin: -122px auto 0 56px;
+    justify-content: center;
+}
+#Profile-photo {
+    max-width: 200px;
+    border-radius: 50%;
+    border: 5px solid var(--color-white);
+}
+#Profile-name {
+    font-size: 1.3em;
+    font-weight: bold;
+    text-decoration: underline;
+    padding: 6px 0 0 5px;
+}
+#Profile-handle {
+    font-size: 14px;
+    padding: 4px 0 0 5px;
+}
+#Profile-description {
+    font-size: 13.5px;
+    padding: 16px 0 0 5px;
 }
 
 
 /* - - - - - - - - - - - -  USER STATS BAR  - - - - - - - - - - - - */
-/* .Feed-container {
-
-} */
-
 .Feed--statusBar {
     grid-area: statbar;
     display: grid;
+    /* box-shadow: 0px 3px 5px var(--color-off-white); */
     background-color: white;
 }
 .Feed-stats {
     display: flex;
+    /* margin-left: 17px; */
 }
 .Feed-stat {
-    /* display: flex; */
-    border: 1px dotted red;
+    /* min-width: 80px; */
+    text-align: center;
+    padding: 0px 16px;
+    /* border: 1px dotted red; */
+}
+.Feed-stat:hover {
+    color: var(--color-blue);
+    border-bottom: 2px solid var(--color-blue);
 }
 .stat-title {
-display: block;
+    padding-top: 12px;
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    color: black;
 }
 .stat-stat {
-display: block;
+    padding-top: 2px;
+    display: block;
+    font-size: 17px;
+    font-weight: bold;
 }
 
 
 .FollowButton {
     display: block;
-    border: 1px solid blue;
+    border: 1px solid var(--color-blue);
     border-radius: 20px;
-    padding: 10px 30px;
-    margin: 10px 40px 10px auto;
+    padding: 8px 28px;
+    text-align: center;
+    margin: 12px 44px 12px auto;
 }
 
 
 /* - - - - - - - - - - - -  USER FEED  - - - - - - - - - - - - */
 #Feed {
-    /* display: grid; */
     grid-area: feed;
-    background-color: yellow;
 }
 .Feed--header {
-    background-color: yellow;
-    border: 1px solid blue;
-    padding: 20px;
-}
-.Feed--header-link {
     display: flex;
-    flex: auto;
-    /* border: 1px solid blue; */
-    margin-left: 10px;
+    height: 30px;
+    margin-top: 11px;
+    padding: 14px 0 1px 16px;
+    box-shadow: 0px 1px 3px var(--color-off-white);
+    /* background-color: yellow; */
+}
+
+.Feed--header-link {
+    margin-right: 34px;
+    font-size: 17.5px;
+    font-weight: bold;
+}
+.Feed--header-link:hover {
+    color: var(--color-blue);
 }
 .Feed--block {
     grid-area: feed;
-    display: block;
-
-    /* background-color: green; */
 }
+.Feed--post {
+    display: flex;
+    padding: 9px 30px 13px 10px;
+    border-bottom: 1px solid gray;
+}
+
+/* - - - - - - - - - - - -  USER POST  - - - - - - - - - - - - */
+.Post--avatar {
+    height: 47px;
+    border-radius: 50%;
+    border: 3px solid white;
+}
+.retweet {
+    font-size: 12px;
+    /* padding: 10px 0 0px 44px; */
+}
+.Post--body {
+    margin-left: 7px;
+}
+.Post--header {
+    font-size: 14px;
+    /* color: blue; */
+}
+.User--name {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: unset;
+}
+.Post--content {
+    padding-top: 4px;
+    font-size: 14px;
+    line-height: 125%;
+}
+.Post--footer {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    font-size: 13px;
+    font-weight: bolder;
+    /* padding-top: 16px; */
+    /* padding-left: 31px; */
+}
+.Post--footer>div {
+    padding: 16px 31px 0px 31px;
+}
+/*  REFIGURE FOOTER VALUES to sit at CENTER w/margins in each */
