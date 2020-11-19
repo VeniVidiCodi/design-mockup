@@ -3,197 +3,133 @@
 /* Refers to a varient of NavBar ("Modifier" in BEM) .NavBar--sticky { } */
 
 :root {
---bg-color: #feaafe;
+/* --bg-color: #feaafe; */
 /* --page-spacing: 50px; */
 }
 
 @media screen and (max-width: 922px) {
-    .Container {
+    /* .Container {
         display: grid;
         grid-template-columns: 10% 80% 10%;
         grid-template-rows: 70px 1fr;
         min-height: 100vh;
-    }
+    } */
 }
 
 @media screen and (max-width: 600px) {
-    .Container {
+    /* .Container {
         display: grid;
         grid-template-columns: 5% 90% 5%;
         grid-template-rows: 70px 1fr;
         min-height: 100vh;
-    }
+    } */
 }
+
+
 
 body {
     margin: 0;
     background: url('../img/hw1alt_mockup_reference_50%.png') no-repeat top center fixed;
     background-size: cover;
-    opacity: 0.8;
+    opacity: 0.6;
 }
-
 .Container {
     display: grid;
-    /* flex-direction: column; */
-    grid-template-columns: 5% 20% 50% 20% 5%;
-    grid-template-rows: 60px 1fr;
-    /* min-height: 100vh; */
-    /* opacity: 0.9; */
+    grid-template-columns: 1fr 45% 1fr;
+    grid-template-rows: 46px 1fr 60px 1fr;
+    grid-template-areas: 
+    "navbar navbar navbar"
+    "banner banner banner"
+    "profile statbar statbar"
+    ". feed .";
 }
 
+/* - - - - - - - - - - - -  NAVIGATION BAR  - - - - - - - - - - - - */
 .NavBar {
-    grid-column: 1 / span 5;
-    grid-row: 1;
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: 200px 1fr 200px;
-    height: 60px;
-    align-items: center;
-    /* border: 1px solid black; */
-    /* padding: var(--page-spacing); */
-    padding-left: 70px;
-    padding-right: 70px;
+    grid-area: navbar;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    background-color: white;
 }
 
 .Home-button {
-    border: 1px solid red;
-    display: grid;
-    grid-row: 1;
-    grid-column: 1;
+   
 }
 .LogIn-button {
-    border: 1px solid red;
-    display: grid;
-    grid-row: 1;
-    grid-column: 3;
-    justify-content: end;   
+       
 }
 
 
-.MainContent {
-    /* border: 1px solid black; */
-    grid-row: 2;
-    grid-column: 1 / span 5;
-   
-    height: 810px;
-    
-    display: grid;
-    grid-template-rows: 215px 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
-    /* align-items: start | stretch; */
-    /* background-color: var(--bg-color); */
-    /* margin-left: var(--page-spacing); */
-}
-
+/* - - - - - - - - - - - -  BANNER  - - - - - - - - - - - - */
 .Banner-main {
-    color: blue;
-    /* border: 1px solid black; */
-
-    grid-row: 1;
-    grid-column: 1 / span 3;
-    display: grid;
-    /* grid-template-rows: 100px 1fr;
-    grid-template-columns: 1fr 1fr 1fr; */
-    
-    /* height: 210px; */
-    /* position: relative; */
-}
-.Feed-container {
-    /* border: 1px solid blue; */
-    grid-row: 2;
-    grid-column: span 3;
-
-    display: grid;
-    /* height: auto; */
-    /* align-content: stretch; */
-    /* height: 800px; */
-    grid-template-rows: 80px 1fr;
-    grid-template-columns: 1fr 780px 1fr;
-    /* position: relative; */
-}
-
-.Feed--statusBar {
-    /* border: 1px solid green; */
-    grid-column: 1 / span 3;
-    grid-row: 1;
-    display: grid;
-    grid-template-columns: 1fr 780px 1fr;
-    grid-template-rows: 1fr;
+    grid-area: banner;
+    width: 100vw;
+    min-height: 160px;
+    background-color: white;
 }
 .Profile-block {
-    border: 1px solid red;
-    grid-column: 1;
-    grid-row: 1;
-}
-.Feed--statusBar-stats {
-    border: 1px solid yellow;
-    grid-column: 2;
-    grid-row: 1;
-    display: inline-flex;
-}
-.Feed--statusBar-stats > div {
-    margin: 15px 30px 0px 20px;
-    justify-content: center;
-}
-.Feed--statusBar-stats > div > h2 {
-    color: blue;
-    margin-top: 0px; 
-}
-.FollowButton {
-    border: 1px solid red;
-    grid-column: 3;
-    grid-row: 1;
+    grid-area: profile;
+    width: auto;
+    background-color: white;
 }
 
-.Feed-marginLeft {
-    border: 1px solid black;
-    grid-column: 1;
-    grid-row: 2;
-}
 
-.Feed-container_col2 {
-    border: 1px solid black;
-    grid-column: 2; 
-    grid-row: 2;
-}
+/* - - - - - - - - - - - -  USER STATS BAR  - - - - - - - - - - - - */
+/* .Feed-container {
 
-.Feed-block {
-    /* border: 1px solid red; */
-    margin-top: 13px;
-    /* grid-column: 2; 
-    grid-row: 2; */
-}
-
-.Feed--header {
-    border: 1px solid red;
-    height: 60px;
-}
-.Feed--header-link {
-    border: 1px dotted blue;
-
-}
-/* .Feed-block-header > span {
-    display: inline-block;
 } */
 
-.Feed--post {
-    border: 1px solid red;
+.Feed--statusBar {
+    grid-area: statbar;
+    display: grid;
+    background-color: white;
+}
+.Feed-stats {
+    display: flex;
+}
+.Feed-stat {
+    /* display: flex; */
+    border: 1px dotted red;
+}
+.stat-title {
+display: block;
+}
+.stat-stat {
+display: block;
+}
+
+
+.FollowButton {
+    display: block;
+    border: 1px solid blue;
+    border-radius: 20px;
+    padding: 10px 30px;
+    margin: 10px 40px 10px auto;
+}
+
+
+/* - - - - - - - - - - - -  USER FEED  - - - - - - - - - - - - */
+#Feed {
+    /* display: grid; */
+    grid-area: feed;
+    background-color: yellow;
+}
+.Feed--header {
+    background-color: yellow;
+    border: 1px solid blue;
     padding: 20px;
 }
-
-.Feed-marginRight {
-    border: 1px solid black;
-    grid-column: 3;
-    grid-row:  2;
+.Feed--header-link {
+    display: flex;
+    flex: auto;
+    /* border: 1px solid blue; */
+    margin-left: 10px;
 }
+.Feed--block {
+    grid-area: feed;
+    display: block;
 
-/* .Feed-block-header-link {
-    padding: 10px;
-} */
-
-
-.ProfileBlock {
-    z-index: 0;
-    position: relative; 
-    /* to allow it to shift above with media query  */
+    /* background-color: green; */
 }
