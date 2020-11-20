@@ -3,38 +3,19 @@
 /* Refers to a varient of NavBar ("Modifier" in BEM) .NavBar--sticky { } */
 
 :root {
-    --color-blue: blue;
-    --color-white: white;
-    --color-off-white: #e3e3e3;
+    --color-blue: #00a7c5;
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --color-off-white: #cdcdcd;
 /* --bg-color: #feaafe; */
 /* --page-spacing: 50px; */
 }
 
-@media screen and (max-width: 922px) {
-    /* .Container {
-        display: grid;
-        grid-template-columns: 10% 80% 10%;
-        grid-template-rows: 70px 1fr;
-        min-height: 100vh;
-    } */
-}
-
-@media screen and (max-width: 600px) {
-    /* .Container {
-        display: grid;
-        grid-template-columns: 5% 90% 5%;
-        grid-template-rows: 70px 1fr;
-        min-height: 100vh;
-    } */
-}
-
-
 
 body {
     margin: 0;
-    background: url('../img/hw1alt_mockup_reference_50%.png') no-repeat top center fixed;
-    background-size: cover;
-    opacity: 0.6;
+    /* background: url('../img/hw1alt_mockup_reference_50%.png') no-repeat top center fixed;
+    background-size: cover; */
     font-family: Roboto, Arial, Helvetica, sans-serif;
 }
 .Container {
@@ -44,7 +25,7 @@ body {
     grid-template-areas: 
     "navbar navbar navbar"
     "banner banner banner"
-    "profile statbar statbar"
+    ". statbar statbar"
     ". feed .";
 }
 
@@ -56,7 +37,6 @@ body {
     flex-wrap: nowrap;
     justify-content: space-between;
     padding: 15px 78px 15px 54px;
-    /* background-color: white; */
 }
 
 .Home-button {
@@ -74,12 +54,14 @@ body {
     grid-area: banner;
     width: 100vw;
     min-height: 160px;
-    background-color: var(--color-white);
+    background-color: var(--color-blue);
 }
 .Profile-block {
-    grid-area: profile;
-    margin: -122px auto 0 56px;
+    grid-area: banner;
+    margin: 40px auto 0 56px;
     justify-content: center;
+    position: absolute;
+    z-index: 10;
 }
 #Profile-photo {
     max-width: 200px;
@@ -90,7 +72,11 @@ body {
     font-size: 1.3em;
     font-weight: bold;
     text-decoration: underline;
+    color: var(--color-black);
     padding: 6px 0 0 5px;
+}
+#Profile-name:hover {
+    color: var(--color-blue);
 }
 #Profile-handle {
     font-size: 14px;
@@ -103,23 +89,26 @@ body {
 
 
 /* - - - - - - - - - - - -  USER STATS BAR  - - - - - - - - - - - - */
-.Feed--statusBar {
+.User--statusBar {
     grid-area: statbar;
-    display: grid;
-    /* box-shadow: 0px 3px 5px var(--color-off-white); */
-    background-color: white;
 }
-.Feed-stats {
+.User-stats {
     display: flex;
-    /* margin-left: 17px; */
+    position: relative;
 }
-.Feed-stat {
-    /* min-width: 80px; */
+
+.User-stats-border {
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid var(--color-off-white);
+}
+
+.User-stat {
     text-align: center;
     padding: 0px 16px;
-    /* border: 1px dotted red; */
 }
-.Feed-stat:hover {
+.User-stat:hover {
     color: var(--color-blue);
     border-bottom: 2px solid var(--color-blue);
 }
@@ -140,6 +129,7 @@ body {
 
 .FollowButton {
     display: block;
+    color: var(--color-blue);
     border: 1px solid var(--color-blue);
     border-radius: 20px;
     padding: 8px 28px;
@@ -154,15 +144,14 @@ body {
 }
 .Feed--header {
     display: flex;
-    height: 30px;
+    min-height: 30px;
     margin-top: 11px;
-    padding: 14px 0 1px 16px;
     box-shadow: 0px 1px 3px var(--color-off-white);
-    /* background-color: yellow; */
 }
 
 .Feed--header-link {
-    margin-right: 34px;
+    text-align: center;
+    padding: 14px 17px 10px 17px;
     font-size: 17.5px;
     font-weight: bold;
 }
@@ -171,29 +160,36 @@ body {
 }
 .Feed--block {
     grid-area: feed;
+    box-shadow: 0px 2px 3px var(--color-off-white);
 }
 .Feed--post {
     display: flex;
-    padding: 9px 30px 13px 10px;
-    border-bottom: 1px solid gray;
+    flex-flow: row wrap;
+    padding: 9px 30px 10px 10px;
+    border-bottom: 1px solid var(--color-off-white);
 }
 
 /* - - - - - - - - - - - -  USER POST  - - - - - - - - - - - - */
-.Post--avatar {
-    height: 47px;
-    border-radius: 50%;
-    border: 3px solid white;
+.Post--container {
+    display: flex;
 }
 .retweet {
     font-size: 12px;
-    /* padding: 10px 0 0px 44px; */
+    display: block;
+    height: 20px;
+    width: 588px;
+    margin-left: 60px;
+}
+.Post--avatar {
+    height: 47px;
+    border-radius: 50%;
+    border: 3px solid var(--color-white);
 }
 .Post--body {
     margin-left: 7px;
 }
 .Post--header {
     font-size: 14px;
-    /* color: blue; */
 }
 .User--name {
     font-size: 14px;
@@ -203,7 +199,7 @@ body {
 .Post--content {
     padding-top: 4px;
     font-size: 14px;
-    line-height: 125%;
+    line-height: 140%;
 }
 .Post--footer {
     display: flex;
@@ -211,10 +207,81 @@ body {
     justify-content: flex-start;
     font-size: 13px;
     font-weight: bolder;
-    /* padding-top: 16px; */
-    /* padding-left: 31px; */
+    padding-top: 16px;
 }
 .Post--footer>div {
-    padding: 16px 31px 0px 31px;
+    text-align: center;
+    width: 70px;
+    margin-right: 14px;
 }
-/*  REFIGURE FOOTER VALUES to sit at CENTER w/margins in each */
+
+@media screen and (max-width: 1170px) {
+    .Container {
+        display: grid;
+        grid-template-columns: 1fr 588px 1fr;
+        grid-template-rows: 45px auto 60px auto;
+    }
+    .Banner-main {
+        justify-content: center;
+    }
+
+    .Profile-block {
+        grid-area: banner;
+        display: flex;
+        position: relative;
+        margin: -4px auto;
+        z-index: 10;
+    }
+    #Profile-photo {
+        max-height: 160px;
+    }
+    #Profile--textWrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 10px;
+    }
+    #Profile-name:hover {
+        color: var(--color-white);
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .Container {
+        display: block;
+    }
+    .Banner-main {
+        min-height: 200px;
+    }
+
+    .Profile-block {
+        position: absolute;
+        margin: -14px auto;
+        z-index: 10;
+        display: flex;
+        flex-flow: column nowrap;
+    }    
+    #Profile-photo {
+        height: 160px;
+        width: 160px;
+    }
+    .Post--content {
+        max-width: fit-content;
+    }
+    .FollowButton {
+        display: none;
+    }
+    .Feed--post {
+        padding: 9px auto;
+        /* border:1px solid blue; */
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .Post--header {
+        display: flex;
+        flex-flow: column nowrap;
+    }
+
+}
