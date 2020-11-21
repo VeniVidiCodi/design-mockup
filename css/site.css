@@ -25,7 +25,7 @@ body {
     grid-template-areas: 
     "navbar navbar navbar"
     "banner banner banner"
-    ". statbar statbar"
+    "statbar statbar statbar"
     ". feed .";
 }
 
@@ -42,10 +42,14 @@ body {
 .Home-button {
    font-size: 12px;
    font-weight: bold;
+   text-decoration: none;
+   color: var(--color-blue);
 }
 .LogIn-button {
     font-size: 12px;
     font-weight: bold;
+    text-decoration: none;
+    color: var(--color-blue);
 }
 
 
@@ -90,15 +94,18 @@ body {
 
 /* - - - - - - - - - - - -  USER STATS BAR  - - - - - - - - - - - - */
 .User--statusBar {
-    grid-area: statbar;
+    grid-column: 2 / 4;
+    grid-row: 3 / 4;
 }
 .User-stats {
-    display: flex;
     position: relative;
+    display: flex;
 }
 
 .User-stats-border {
-    position: absolute;
+    grid-area: statbar;
+    grid-column: 1 / 4;
+    grid-row: 3 / 4;
     width: 100%;
     height: 60px;
     border-bottom: 1px solid var(--color-off-white);
@@ -135,6 +142,7 @@ body {
     padding: 8px 28px;
     text-align: center;
     margin: 12px 44px 12px auto;
+    text-decoration: none;
 }
 
 
@@ -247,34 +255,65 @@ body {
 }
 
 
+/* - - - - - - - - -   MEDIA QUERIES   - - - - - - - - - - */
 @media screen and (max-width: 600px) {
     .Container {
         display: block;
     }
     .Banner-main {
-        min-height: 200px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
     }
 
     .Profile-block {
-        position: absolute;
-        margin: -14px auto;
-        z-index: 10;
-        display: flex;
+        /* position: absolute; */
+        margin: -14px 0 10px 0;
         flex-flow: column nowrap;
+        /* align-content: center; */
     }    
     #Profile-photo {
-        height: 160px;
-        width: 160px;
+        height: 140px;
+        width: 140px;
+        margin: 0 auto;
+    }
+    #Profile-description {
+        padding-top: 6px;
+    }
+
+    .User-stats-border {
+        display: none;
+    }
+    .User-stats {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        border-bottom: 1px solid var(--color-off-white);
+    }
+    .User-stat {
+        padding: 0px 10px;
+    }
+
+    .Feed--header {
+        margin-top: 0;
+    }
+
+    .Feed--post {
+        padding: 9px auto;
     }
     .Post--content {
         max-width: fit-content;
     }
     .FollowButton {
-        display: none;
+        padding: 8px 22px;
+        margin: 12px 10px 12px 0;
     }
-    .Feed--post {
-        padding: 9px auto;
-        /* border:1px solid blue; */
+
+    .Post--body {
+        margin-left: 20px;
+    }
+    .retweet {
+        margin-left: 72px;
     }
 }
 
